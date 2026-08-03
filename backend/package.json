@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"tsx watch src/index.ts",
-    "build":"tsc",
-    "start":"node dist/index.js",
-    "db:push":"drizzle-kit push"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:push": "drizzle-kit push"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +30,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^22.10.10",
     "@types/pg": "^8.11.10",
