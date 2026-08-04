@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch --import ./src/instrument.ts src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "db:push": "drizzle-kit push"
+    "start": "node --import ./src/instrument.ts dist/index.js",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx scripts/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
     "@clerk/backend": "^3.2.8",
     "@clerk/express": "^2.1.0",
@@ -19,11 +21,10 @@
     "@sentry/node": "^10.48.0",
     "@sentry/profiling-node": "^10.48.0",
     "cors": "^2.8.5",
+    "cron": "^4.4.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.39.3",
     "express": "^5.2.1",
-    "i": "^0.3.7",
-    "npm": "^11.19.0",
     "pg": "^8.13.1",
     "standardwebhooks": "^1.0.0",
     "stream-chat": "^8.57.6",
