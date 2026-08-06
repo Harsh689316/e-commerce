@@ -4,6 +4,7 @@ import { checkoutSessions, orderItems, orders } from "../db/schema.js";
 import { eq } from "drizzle-orm";
 import { db } from "../db/index.js";
 import { Webhook } from "standardwebhooks";
+import { line } from "drizzle-orm/pg-core/columns/line";
 
 function headerString(headers: Request["headers"], name: string) {
   const value = headers[name];
@@ -53,7 +54,7 @@ async function fulfillCheckoutSession(
 
     const [order] = await tx
       .insert(orders)
-      .values({
+      .values({ 
         userId: session.userId,
         status: "paid",
         totalCents: session.totalCents,

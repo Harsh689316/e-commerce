@@ -1,4 +1,4 @@
-import type { UserRole } from  "../db/TS schema.ts" ; 
+import type { UserRole } from  "../db/schema" ; 
 
 
 const VALID: readonly UserRole[]= ["customer", "support", "admin"] ; 

@@ -15,7 +15,7 @@ import keepAliveCron from "./lib/cron";
 import productRouter from "./routes/productRouter";
 import meRouter from "./routes/meRouter";
 import streamRouter from "./routes/streamRouter";
-import chekoutRouter from "./routes/chekoutRouter";
+import chekoutRouter from "./routes/checkoutRouter";
 import adminRouter from "./routes/adminRouter";
 import orderRouter from "./routes/orderRouter";
 
