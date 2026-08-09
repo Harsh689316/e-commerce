@@ -1,5 +1,3 @@
-
-
 import { Show, SignInButton, SignUpButton, useAuth, UserButton } from "@clerk/react";
 import PageLoader from "./components/PageLoader";
 import Layout from "./components/Layout";
@@ -15,21 +13,8 @@ import OrderSummaryPage from "./pages/OrderSummaryPage";
 import OrderChatPage from "./pages/OrderChatPage";
 import OrderVideoPage from "./pages/OrderVideoPage";
 import AdminProductsPage from "./pages/AdminProductsPage";
-import './App.css'
-import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
 
 function App() {
-  return (
-    <>
-      <header>
-        <Show when="signed-out">
-          <SignInButton mode="modal" />
-          <SignUpButton mode="modal" />
-        </Show>
-        <Show when="signed-in">
-          <UserButton />
-        </Show>
-        
   const { isLoaded, isSignedIn } = useAuth();
 
   if (!isLoaded) return <PageLoader />;
@@ -66,12 +51,6 @@ function App() {
       </Routes>
     </Layout>
   );
-
-
-export default App;
-      </header>
-    </>
-  )
 }
 
-export default App
+export default App;

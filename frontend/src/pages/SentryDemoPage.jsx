@@ -257,7 +257,7 @@ function sendRateLimitWarning() {
     "API gateway: tenant over public rate limit",
     logDemo({
       area: "api",
-      tenantId: "org_demo_northwind",
+      tenantId: "org_demo_e-commerce",
       limitPerMinute: 120,
       retryAfterSec: 34,
     }),
@@ -268,13 +268,13 @@ function sendRateLimitWarning() {
     scope.setTag("area", "api");
     scope.setLevel("warning");
     scope.setContext("rate_limit", {
-      tenantId: "org_demo_northwind",
+      tenantId: "org_demo_e-commerce",
       limitPerMinute: 120,
       retryAfterSec: 34,
     });
 
     Sentry.captureMessage(
-      "Public catalog API rate limit exceeded for tenant org_demo_northwind.",
+      "Public catalog API rate limit exceeded for tenant org_demo_e-commerce.",
       "warning",
     );
   });
