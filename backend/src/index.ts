@@ -84,8 +84,18 @@ app.use(
   },
 );
 
+app.get("/", (_req, res) => {
+  res.status(200).send("Backend is running 🚀");
+});
+
+app.get("/health", (_req, res) => {
+  res.status(200).json({
+    status: "ok",
+  });
+});
+
 app.listen(env.PORT, "0.0.0.0", () => {
-  console.log("🚀 Listening on port:", env.PORT);
+  console.log(`🚀 Server running on 0.0.0.0:${env.PORT}`);
 
   if (env.NODE_ENV === "production") {
     keepAliveCron.start();
