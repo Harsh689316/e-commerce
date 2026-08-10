@@ -13,7 +13,7 @@ const envSchema = zod_1.z.object({
     FRONTEND_URL: zod_1.z.string().url(),
     POLAR_ACCESS_TOKEN: zod_1.z.string().optional(),
     POLAR_WEBHOOK_SECRET: zod_1.z.string().optional(),
-    POLAR_API_BASE: zod_1.z.string().url().default("https://api.polar.sh"),
+    POLAR_API_BASE: zod_1.z.string().url().default("https://sandbox-api.polar.sh"),
     POLAR_CHECKOUT_PRODUCT_ID: zod_1.z.string().uuid(),
     STREAM_API_KEY: zod_1.z.string().min(1),
     STREAM_API_SECRET: zod_1.z.string().min(1),
