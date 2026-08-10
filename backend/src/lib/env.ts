@@ -4,9 +4,9 @@ import { z } from "zod";
 const envSchema = z.object({
   NODE_ENV: z
     .enum(["development", "production", "test"])
-    .default("development"),
+    .default("production"),
 
-  PORT: z.coerce.number().default(3001),
+  PORT: z.coerce.number().default(10000),
 
   DATABASE_URL: z.string().min(1),
 
@@ -24,7 +24,9 @@ const envSchema = z.object({
     .url()
     .default("https://sandbox-api.polar.sh"),
 
-  POLAR_CHECKOUT_PRODUCT_ID: z.string().uuid(),
+  // IMPORTANT:
+  // Do not require UUID here until we confirm your Polar ID format.
+  POLAR_CHECKOUT_PRODUCT_ID: z.string().min(1),
 
   STREAM_API_KEY: z.string().min(1),
   STREAM_API_SECRET: z.string().min(1),
@@ -41,17 +43,19 @@ const envSchema = z.object({
 
 export type Env = z.infer<typeof envSchema>;
 
-export function loadEnv() {
+export function loadEnv(): Env {
   const parsed = envSchema.safeParse(process.env);
 
   if (!parsed.success) {
-    console.error("❌ Invalid environment variables:");
+    console.error("========== ENV VALIDATION FAILED ==========");
 
     for (const issue of parsed.error.issues) {
       console.error(
-        `❌ ${issue.path.join(".")}: ${issue.message}`
+        `${issue.path.join(".")}: ${issue.message}`
       );
     }
+
+    console.error("============================================");
 
     throw new Error("Invalid environment variables");
   }
@@ -61,11 +65,10 @@ export function loadEnv() {
 
 let cachedEnv: Env | null = null;
 
-export function getEnv() {
+export function getEnv(): Env {
   if (!cachedEnv) {
     cachedEnv = loadEnv();
   }
 
   return cachedEnv;
 }
-
