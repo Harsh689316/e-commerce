@@ -1,3 +1,3 @@
 "use strict" ; 
-Object.defineProperty(exports,"_esModule" , {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 const Name = "Martin";
