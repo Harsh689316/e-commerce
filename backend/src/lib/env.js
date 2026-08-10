@@ -29,16 +29,16 @@ function loadEnv() {
   const parsed = envSchema.safeParse(process.env);
 
   if (!parsed.success) {
-    console.error("❌ Environment validation failed:");
+  console.error("========== ENV VALIDATION FAILED ==========");
 
-    for (const issue of parsed.error.issues) {
-      console.error(
-        `❌ ${issue.path.join(".")}: ${issue.message}`
-      );
-    }
+  console.error(
+    JSON.stringify(parsed.error.flatten(), null, 2)
+  );
 
-    throw new Error("Invalid environment variables");
-  }
+  console.error("============================================");
+
+  throw new Error("Invalid environment variables");
+}
 
   return parsed.data;
 }
