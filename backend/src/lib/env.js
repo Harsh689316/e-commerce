@@ -26,16 +26,21 @@ const envSchema = zod_1.z.object({
     SENTRY_REPLAY_SAMPLE_RATE: zod_1.z.coerce.number().optional(),
 });
 function loadEnv() {
-    const parsed = envSchema.safeParse(process.env);
+  const parsed = envSchema.safeParse(process.env);
 
-    if (!parsed.success) {
-        console.error("❌ Environment validation failed:");
-        console.error(parsed.error.format());
+  if (!parsed.success) {
+    console.error("❌ Environment validation failed:");
 
-        throw new Error("Invalid environment variables");
+    for (const issue of parsed.error.issues) {
+      console.error(
+        `❌ ${issue.path.join(".")}: ${issue.message}`
+      );
     }
 
-    return parsed.data;
+    throw new Error("Invalid environment variables");
+  }
+
+  return parsed.data;
 }
 let cachedEnv = null;
 function getEnv() {
