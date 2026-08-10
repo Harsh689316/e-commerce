@@ -24,8 +24,6 @@ const envSchema = z.object({
     .url()
     .default("https://sandbox-api.polar.sh"),
 
-  // IMPORTANT:
-  // Do not require UUID here until we confirm your Polar ID format.
   POLAR_CHECKOUT_PRODUCT_ID: z.string().min(1),
 
   STREAM_API_KEY: z.string().min(1),
