@@ -25,6 +25,13 @@ export function useOrderChatPage() {
     mutationFn: () => apiFetch(`/api/orders/${id}/video-invite`, { getToken, method: "POST" }),
   });
 
+  console.log("ORDER CHAT VALUES:", {
+  paid,
+  id,
+  isSignedIn,
+  role,
+});
+
   useEffect(() => {
     if (!paid || !id) return undefined;
 
