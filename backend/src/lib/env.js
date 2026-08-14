@@ -15,7 +15,7 @@ const envSchema = zod_1.z.object({
     .enum(["development", "production", "test"])
     .default("production"),
 
-  PORT: zod_1.z.coerce.number().default(10000),
+  PORT: zod_1.z.coerce.number().default(3001),
 
   DATABASE_URL: zod_1.z.string().min(1),
 
