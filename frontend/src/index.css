@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
 :root {
-  --text: #4b5563;
+  --text: #f66060;
   --text-h: #111827;
   --bg: #ffffff;
   --border: #e5e7eb;
-  --accent: #7c3aed;
+  --accent: #5bba7b;
   --accent-bg: #f5f3ff;
-  --accent-border: #c4b5fd;
+  --accent-border: #907edad5;
 
   --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
