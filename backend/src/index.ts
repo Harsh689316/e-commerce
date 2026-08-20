@@ -40,9 +40,7 @@ app.use(cors());
 app.use(clerkMiddleware());
 app.use(sentryClerkUserMiddleware);
 
-app.get("/health", (_req, res) => {
-  res.json({ ok: true });
-});
+
 
 app.use("/api/me", meRouter);
 app.use("/api/products", productRouter);
