@@ -48,7 +48,7 @@ function AdminProductsPage() {
           }}
         >
           <PlusIcon className="size-4" aria-hidden />
-          Add product
+          Add products
         </button>
       </div>
 
